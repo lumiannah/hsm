@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>ESP_HSM</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/main.js" type="module"></script>
+    <!-- <script src="https://kit.fontawesome.com/77eeb2afe3.js" crossorigin="anonymous"></script> -->
+    <script src="distro/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+
+        <component :is="currentView" :user="user"></component>
+
+        <!-- <div class="auth">
+            <form id="login">
+                <label for="user">User :</label>
+                <input type="user" name="user" required>
+                <label for="password">Password :</label>
+                <input type="password" name="password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+        <div class="inventory">
+            <div class="header status icon hoverable" data-selected data-sort="ByStatus">Status</div>
+            <div class="header device icon hoverable" data-sort="ByDevice">Device Name</div>
+            <div class="header item icon hoverable" data-sort="ByItemId">Item ID</div>
+            <div class="header item icon name hoverable" data-sort="ByItenName">Item Name</div>
+            <div class="header settings  icon transparent"></div>
+        </div>
+        <div class="overlay hidden"></div> -->
+    </div>
+   
+</body>
+</html>

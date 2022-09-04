@@ -1,0 +1,100 @@
+@import 'reset.css';
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Mono&display=swap');
+
+:root {
+    --ff-number: 'PT Mono', monospace;
+    --ff-main: 'PT Serif', serif;
+    --color-bg: rgb(223, 227, 236);
+    --color-attn: rgb(149, 113, 170);
+    --color-attn-extra: rgb(113, 60, 145);
+}
+
+
+body {
+    background-color: var(--color-bg);
+}
+
+#app {
+    max-width: 960px;
+    margin-inline: auto;
+    padding: .5em;
+    font-size: 1.25em;
+    /* font-size: clamp(1rem, 2vw, 2rem); */
+    font-family: var(--ff-main);
+    color: #222;
+}
+
+
+
+form {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+form > * {
+    padding-inline: 1.5em;
+    padding-block: 1.5em;
+    width: 100%;
+    border-radius: .5em;
+    border: none;
+}
+
+form > label {
+    position: relative;
+    top: .4em;
+    left: 1.25em;
+    background: linear-gradient(0deg, #fff .4em, var(--color-bg) .4em);
+    font-size: 1em;
+    width: max-content;
+    padding: 0 .4em;
+    /* font-weight: 700; */
+    color: var(--color-attn-extra);
+    line-height: 1em;
+}
+form > input,
+form > select {
+    background-color: #fff;
+    box-shadow: 0 0 3px 1px #6663;
+    margin-bottom: 1em;
+    outline: var(--color-attn) solid 0.1px;
+}
+
+form > [type="submit"],
+button {
+    background-color: var(--color-attn);
+    color: #fff;
+    font-weight: 700;
+    box-shadow: 0 0 3px 1px #6663;
+    outline: none;
+}
+
+form > [type="submit"]:hover,
+button:hover {
+    background-color: var(--color-attn-extra);
+    cursor: pointer;
+}
+
+form > input:focus,
+form > select:focus {
+	outline: var(--color-attn) solid 0.25em;
+}
+
+.margintop2 {
+    margin-top: 2em;
+}
+
+.graph {
+    border: #bdbdbd solid 1px;
+    margin-block: 1em;
+}
+button {
+    margin-right: 1em;
+    padding: 1em;
+}
+
+h1 {
+    font-size: 2em;
+    text-align: center;
+    margin-block: 1em;
+}
