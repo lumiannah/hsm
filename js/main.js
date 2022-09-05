@@ -53,7 +53,3 @@ const app = Vue.createApp({
 })
 
 app.mount('#app')
-
-setInterval( () => {
-    window.location.reload()
-}, 60000);
