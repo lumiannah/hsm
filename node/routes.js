@@ -106,7 +106,7 @@ const getDevices = async (req, res) => {
         for (const device of devices) {
             const { timeInterval, timeField } = req.body
             console.log(req.body);
-            const deviceData = await db.selectDeviceDatas(device.id, timeInterval, timeField)
+            const deviceData = await db.selectDeviceData(device.id, timeInterval, timeField)
             datas.push({
                 id: device.id,
                 name: device.name,
@@ -122,18 +122,21 @@ const getDevices = async (req, res) => {
 
 // post /devices/:id
 const updateDevice = async (req, res) => {
-    if (req.sessionID && req.session.user && req.params.id) {
+    const { newDeviceName } = req.body
+    if (req.sessionID && req.session.user && req.params.id && newDeviceName) {
         // check whether the user still exists in db
         const validatedUser = await validateUser(req.session.user.username)
         if (!validatedUser)
             return res.sendStatus(401)
 
-        //// TODO
-        //// db.updateDevice(id)
-        res.status(200)
-        return res.json( req.session.user )
+        try {
+            await db.updateDeviceName(req.params.id, newDeviceName)
+            return res.sendStatus(200)
+        } catch (error) {
+            console.error(error);
+            return res.sendStatus(401)
+        }
     }
-    return res.sendStatus(401)
 }
 
 

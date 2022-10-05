@@ -62,12 +62,12 @@ async function insertNewUser(username, hashedPassword) {
 
 async function selectAllDevices() {
     const devices = await pgPool.query(
-        'SELECT * FROM devices',
+        'SELECT * FROM devices ORDER BY name ASC',
     )
     return devices.rows
 }
 
-async function selectDeviceDatas(id, interval, field) {
+async function selectDeviceData(id, interval, field) {
     interval = `${interval} ${field}`
     const data = await pgPool.query(`
     WITH temp_hum_values AS (
@@ -105,6 +105,14 @@ async function selectDeviceDatas(id, interval, field) {
     return data.rows
 }
 
+async function updateDeviceName(deviceId, updatedName) {
+    await pgPool.query(
+        'UPDATE devices SET name = $2 WHERE id = $1',
+        [deviceId, updatedName]
+    )
+    return
+}
+
 module.exports = {
     pgSession,
     pgPool,
@@ -115,5 +123,6 @@ module.exports = {
     insertNewData,
     getDeviceByMac,
     selectAllDevices,
-    selectDeviceDatas
+    selectDeviceData,
+    updateDeviceName
 }
